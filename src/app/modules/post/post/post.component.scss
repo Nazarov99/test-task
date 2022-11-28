@@ -1,0 +1,200 @@
+@import "../../../core/scss/variable";
+@import "../../../core/scss/mixin";
+
+.post {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    &-top {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 0;
+
+      h1 {
+        @include Raleway();
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+        color: $color-title;
+      }
+
+      p {
+        @include Raleway();
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        color: $color-paragraph;
+      }
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+
+      .post-tags {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+
+        .tag {
+          padding: 15px 25px;
+          border-radius: 30px;
+          background-color: $color-tag;
+          @include Raleway();
+          font-weight: 500;
+          font-size: 18px;
+          cursor: pointer;
+
+          &.active {
+            background-color: $color-card;
+            color: $color-paragraph;
+          }
+        }
+      }
+
+      .post-items {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 80px 20px;
+
+        .items {
+          cursor: pointer;
+          background-color: $color-card;
+          border-radius: 20px 20px;
+
+          img {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px 20px 0 0;
+          }
+
+          .bottom {
+            padding: 20px 13px;
+            text-align: center;
+
+            h3 {
+              @include Raleway();
+              font-style: normal;
+              font-weight: 700;
+              font-size: 24px;
+              line-height: 28px;
+              text-align: center;
+              color: $color-title;
+            }
+
+            p {
+              @include Raleway();
+              font-style: normal;
+              font-weight: 400;
+              font-size: 20px;
+              line-height: 30px;
+              text-align: center;
+              color: $color-title;
+            }
+          }
+        }
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+
+      select {
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+::ng-deep{
+  ngb-pagination{
+
+    .pagination{
+      display: flex;
+      list-style: none;
+      padding-left: 10px;
+
+      li{
+
+        a{
+          text-decoration: none;
+        }
+      }
+      .page-item.active .page-link{
+        background-color: $color-title;
+        border-color: transparent;
+      }
+      .page-item{
+
+        &.active {
+
+          .page-link {
+            background-color: $color-card;
+            color: $color-white;
+          }
+
+        }
+
+        .page-link{
+          background-color: $color-white;
+          color: $color-black;
+          font-size: 16px;
+          line-height: 28px;
+          font-weight: 500;
+          border-radius: 8px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          justify-content: center;
+          cursor: pointer;
+          margin: 0 5px;
+          outline: 0;
+          font-family: 'Rubik', sans-serif;
+          border: none;
+
+          .sr-only {
+            display: none;
+          }
+
+          &:focus{
+            box-shadow: none !important;
+            border-color: transparent !important;
+          }
+        }
+
+        &:nth-child(1){
+          display: none;
+        }
+        &:nth-child(2){
+          display: none;
+        }
+        &:nth-last-child(1){
+          display: none;
+        }
+        &:nth-last-child(2){
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+

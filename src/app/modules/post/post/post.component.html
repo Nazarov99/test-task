@@ -1,0 +1,43 @@
+<div class="post">
+  <div class="post__content">
+    <div class="post__content-top">
+      <h1>Posts Examples</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum.</p>
+    </div>
+    <div class="post__content-body">
+      <div class="post-tags">
+        <div class="tag" *ngFor="let tag of tags;let i = index" (click)="selectTag(i, tag.key)" [class.active]="tag.active">
+          {{tag.name}}
+        </div>
+      </div>
+      <div class="post-items">
+        <div class="items" *ngFor="let post of posts">
+          <img [src]="imageUrl + post.image" alt="">
+          <div class="bottom">
+            <h3>{{post.title}}</h3>
+            <p>{{post.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="post__content-bottom">
+      <ngb-pagination
+        (pageChange)="onTableDataChange($event)"
+        [page]="current_page"
+        [pageSize]="per_page"
+        [maxSize]="3"
+        [collectionSize]="total"
+        [rotate]="true"
+        [boundaryLinks]="true">
+      </ngb-pagination>
+      <div>
+        <select (change)="selectPageSize($event)">
+          <option *ngFor="let page of pages"
+                  [value]="page.pageSize">
+            {{page.pageSize}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
